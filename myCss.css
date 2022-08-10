@@ -1,0 +1,14 @@
+body {
+    background-color: cadetblue;
+    text-align: center;
+}
+
+h1, h4 {
+    margin-bottom: 20px;
+    color:peachpuff
+}
+
+button {
+    margin: 5px;
+    width: 30%;
+}
