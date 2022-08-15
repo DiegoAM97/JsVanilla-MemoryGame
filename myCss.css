@@ -12,3 +12,21 @@ button {
     margin: 5px;
     width: 30%;
 }
+
+table {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    height: 40px;
+    width: 100px;
+    color: black;
+    background-color: black;
+}
+
+#tableContainer {
+    margin: 10%;
+}
