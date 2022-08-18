@@ -72,6 +72,40 @@ async function play(){
     }
 }
 
+// another way to add events to new elements (IF addEventListener not added on the element creation)
+// getElementById is optional
+/*
+document.getElementById("tableContainer").addEventListener("click",  async function(e){
+
+    if (e.target.nodeName === "TH" && 
+        document.getElementById(e.target.id).style.backgroundColor !== "goldenrod"){
+
+        if (counter < 2) {
+
+            let currentEl = document.getElementById(e.target.id);
+            currentEl.style.backgroundColor = "goldenrod";
+            counter ++;
+
+            if (counter === 1){
+                firstChoice = currentEl.textContent;
+                firstId = e.target.id;
+            }
+
+            if (counter === 2){
+                secondChoice = currentEl.textContent;
+                await sleep(550);
+
+                if (firstChoice !== secondChoice){
+                    currentEl.style.backgroundColor = "black";
+                    document.getElementById(firstId).style.backgroundColor = "black";
+                }
+                counter = 0;
+            }
+        }
+    }
+});
+*/
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
