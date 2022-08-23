@@ -18,7 +18,11 @@ hardBtn.addEventListener("click", () => createBoard(hard));
 
 function createBoard(diff){
 
+    let counter = 0;
     container.textContent = "";
+
+    let myCounter = document.createElement("h2");
+    myCounter.textContent = "Time: " + counter;
 
     let myTable = document.createElement("table");
     myTable.setAttribute("class", "table-bordered border-light");
@@ -40,7 +44,12 @@ function createBoard(diff){
         myTbody.append(myRow);
     }
     myTable.append(myTbody);
+    tableContainer.append(myCounter);
     tableContainer.append(myTable);
+    setInterval(() => {
+        counter++;
+        myCounter.textContent = "Time: " + counter;
+    }, 1000);
 }
 
 async function play(){
