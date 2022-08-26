@@ -99,7 +99,8 @@ async function play(){
 document.getElementById("tableContainer").addEventListener("click",  async function(e){
 
     if (e.target.nodeName === "TH" && 
-        document.getElementById(e.target.id).style.backgroundColor !== "goldenrod"){
+        document.getElementById(e.target.id).style.backgroundColor !== "goldenrod"
+        && start){
 
         if (numberBoxSelected < 2) {
 
