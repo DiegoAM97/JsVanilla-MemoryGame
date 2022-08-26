@@ -11,6 +11,7 @@ let numberBoxSelected = 0;
 let firstId = "";
 let firstChoice = 0;
 let secondChoice = 0;
+let start = false;
 
 easyBtn.addEventListener("click", () => createBoard(easy));
 mediumBtn.addEventListener("click", () => createBoard(medium));
@@ -20,6 +21,17 @@ function createBoard(diff){
 
     let counter = 0;
     container.textContent = "";
+
+    let myPlayButton = document.createElement("button");
+    myPlayButton.setAttribute("class", "btn btn-dark btn-lg");
+    myPlayButton.textContent = "Play";
+    myPlayButton.addEventListener("click", () => {
+        interval = setInterval(() => {
+                        counter++;
+                        myCounter.textContent = "Time: " + counter;
+                    }, 1000);
+        start = true
+    });
 
     let myCounter = document.createElement("h2");
     myCounter.textContent = "Time: " + counter;
@@ -44,17 +56,14 @@ function createBoard(diff){
         myTbody.append(myRow);
     }
     myTable.append(myTbody);
+    tableContainer.append(myPlayButton);
     tableContainer.append(myCounter);
     tableContainer.append(myTable);
-    setInterval(() => {
-        counter++;
-        myCounter.textContent = "Time: " + counter;
-    }, 1000);
 }
 
 async function play(){
 
-    if (this.style.backgroundColor !== "goldenrod"){
+    if (this.style.backgroundColor !== "goldenrod" && start){
 
         if (numberBoxSelected < 2) {
 
