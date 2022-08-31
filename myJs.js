@@ -26,11 +26,13 @@ function createBoard(diff){
     myPlayButton.setAttribute("class", "btn btn-dark btn-lg");
     myPlayButton.textContent = "Play";
     myPlayButton.addEventListener("click", () => {
-        interval = setInterval(() => {
-                        counter++;
-                        myCounter.textContent = "Time: " + counter;
-                    }, 1000);
-        start = true
+        if(!start){
+            interval = setInterval(() => {
+                            counter++;
+                            myCounter.textContent = "Time: " + counter;
+                        }, 1000);
+            start = true
+        }
     });
 
     let myCounter = document.createElement("h2");
