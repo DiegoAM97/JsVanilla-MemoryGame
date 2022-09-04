@@ -8,10 +8,11 @@ const medium = [1,2,3,4,5,6,1,2,3,4,5,6].sort(() => 0.5 - Math.random());
 const hard = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8].sort(() => 0.5 - Math.random());
 
 let numberBoxSelected = 0;
-let firstId = "";
+let firstId = 0;
 let firstChoice = 0;
 let secondChoice = 0;
 let start = false;
+let interval;
 
 easyBtn.addEventListener("click", () => createBoard(easy));
 mediumBtn.addEventListener("click", () => createBoard(medium));
@@ -31,7 +32,12 @@ function createBoard(diff){
                             counter++;
                             myCounter.textContent = "Time: " + counter;
                         }, 1000);
-            start = true
+            start = true;
+            myPlayButton.textContent = "Pause";
+        } else {
+            clearInterval(interval);
+            start = false;
+            myPlayButton.textContent = "Start";
         }
     });
 
