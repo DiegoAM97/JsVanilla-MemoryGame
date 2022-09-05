@@ -10,7 +10,6 @@ const hard = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8].sort(() => 0.5 - Math.random());
 let numberBoxSelected = 0;
 let firstId = 0;
 let firstChoice = 0;
-let secondChoice = 0;
 let start = false;
 let interval;
 
@@ -37,7 +36,7 @@ function createBoard(diff){
         } else {
             clearInterval(interval);
             start = false;
-            myPlayButton.textContent = "Start";
+            myPlayButton.textContent = "Resume";
         }
     });
 
@@ -86,7 +85,7 @@ async function play(){
             }
 
             else if (numberBoxSelected === 2){
-                secondChoice = currentEl.textContent;
+                const secondChoice = currentEl.textContent;
                 await sleep(500);
 
                 if (firstChoice !== secondChoice){
@@ -122,8 +121,8 @@ document.getElementById("tableContainer").addEventListener("click",  async funct
                 firstId = e.target.id;
             }
 
-            if (numberBoxSelected === 2){
-                secondChoice = currentEl.textContent;
+            else if (numberBoxSelected === 2){
+                const secondChoice = currentEl.textContent;
                 await sleep(550);
 
                 if (firstChoice !== secondChoice){
