@@ -11,6 +11,7 @@ let numberBoxSelected = 0;
 let firstId = 0;
 let firstChoice = 0;
 let start = false;
+let remainingPoints;
 let interval;
 
 easyBtn.addEventListener("click", () => createBoard(easy));
@@ -21,6 +22,7 @@ function createBoard(diff){
 
     let counter = 0;
     container.textContent = "";
+    remainingPoints = diff.length/2;
 
     let myPlayButton = document.createElement("button");
     myPlayButton.setAttribute("class", "btn btn-dark btn-lg");
@@ -93,6 +95,9 @@ async function play(){
                     currentEl.textContent = "";
                     document.getElementById(firstId).style.backgroundColor = "black";
                     document.getElementById(firstId).textContent = "";
+                } else {
+                    remainingPoints--;
+                    checkWin();
                 }
                 numberBoxSelected = 0;
             }
@@ -130,6 +135,9 @@ document.getElementById("tableContainer").addEventListener("click",  async funct
                     currentEl.textContent = "";
                     document.getElementById(firstId).style.backgroundColor = "black";
                     document.getElementById(firstId).textContent = "";
+                } else {
+                    remainingPoints--;
+                    checkWin();
                 }
                 numberBoxSelected = 0;
             }
@@ -140,4 +148,11 @@ document.getElementById("tableContainer").addEventListener("click",  async funct
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function checkWin(){
+    if(!remainingPoints){
+        clearInterval(interval);
+        alert("You won!");
+    }
 }
