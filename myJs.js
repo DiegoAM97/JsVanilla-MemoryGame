@@ -88,14 +88,15 @@ async function play(){
 
             else if (numberBoxSelected === 2){
                 const secondChoice = currentEl.textContent;
-                await sleep(500);
 
                 if (firstChoice !== secondChoice){
+                    await sleep(500);
                     currentEl.style.backgroundColor = "black";
                     currentEl.textContent = "";
                     document.getElementById(firstId).style.backgroundColor = "black";
                     document.getElementById(firstId).textContent = "";
                 } else {
+                    await sleep(0);
                     remainingPoints--;
                     checkWin();
                 }
@@ -128,14 +129,15 @@ document.getElementById("tableContainer").addEventListener("click",  async funct
 
             else if (numberBoxSelected === 2){
                 const secondChoice = currentEl.textContent;
-                await sleep(550);
 
                 if (firstChoice !== secondChoice){
+                    await sleep(500);
                     currentEl.style.backgroundColor = "black";
                     currentEl.textContent = "";
                     document.getElementById(firstId).style.backgroundColor = "black";
                     document.getElementById(firstId).textContent = "";
                 } else {
+                    await sleep(0);
                     remainingPoints--;
                     checkWin();
                 }
@@ -152,6 +154,7 @@ function sleep(ms) {
 
 function checkWin(){
     if(!remainingPoints){
+        document.getElementsByClassName("btn-dark")[0].disabled = true;
         clearInterval(interval);
         alert("You won!");
     }
