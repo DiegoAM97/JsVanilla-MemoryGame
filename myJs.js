@@ -1,10 +1,10 @@
 const easyBtn = document.getElementById("easy");
-const mediumBtn = document.getElementById("medium");
+const normalBtn = document.getElementById("normal");
 const hardBtn = document.getElementById("hard");
 const container = document.getElementById("container");
 const tableContainer = document.getElementById("tableContainer");
 const easy = [1,2,3,4,1,2,3,4].sort(() => 0.5 - Math.random());
-const medium = [1,2,3,4,5,6,1,2,3,4,5,6].sort(() => 0.5 - Math.random());
+const normal = [1,2,3,4,5,6,1,2,3,4,5,6].sort(() => 0.5 - Math.random());
 const hard = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8].sort(() => 0.5 - Math.random());
 
 let numberBoxSelected = 0;
@@ -15,7 +15,7 @@ let remainingPoints;
 let interval;
 
 easyBtn.addEventListener("click", () => createBoard(easy));
-mediumBtn.addEventListener("click", () => createBoard(medium));
+normalBtn.addEventListener("click", () => createBoard(normal));
 hardBtn.addEventListener("click", () => createBoard(hard));
 
 function createBoard(diff){
